@@ -1,0 +1,22 @@
+<header>
+  <h1 class="heading">
+    <a href="index.html">
+      ようこそ Bookers へ！
+    </a>
+  </h1>
+  <main>
+      <p>Bookers では、さまざまな書籍に関するあなたの意見や
+
+印象を共有し交換することができます</p> 
+<% @bookers.each do |book| %>
+        <div class="bookers-item">
+           <section class="book-text">
+            <h3 class="book-text-heading"><%= link_to book.title, book_path(book) %></h3>
+            <p class="book-date"><%= book.created_at %></p>
+          </section>
+        </div>
+      <% end %>
+  </main>
+</header>
+    <footer>
+</footer>
