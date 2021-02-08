@@ -1,9 +1,21 @@
 <h1>Editing Book</h1>
 <!-- form_with部分 -->
-<%= form_with model:@blog, local: true do |f| %>
+<% if @book.errors.any? %>
+<% @book.errors.full_messages.each do |message| %>
+<li>error</li>
+<div class="form-error">
+  <%= message %>
+</div>
+<% end %>
+<% end %>
+<%= form_with model:@book, local: true do |f| %>
   <h4>title</h4>
   <%= f.text_field :title %>
   <h4>body</h4>
   <%= f.text_area :body %>
-  <%= f.submit 'update book' %>
+  <br>
+  <%= f.submit 'Update Book' %>
 <% end %>
+<br>
+<%= link_to "Show", book_path(@book) %>
+<%= link_to "Back", books_path %>
